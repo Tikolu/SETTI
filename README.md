@@ -1,7 +1,7 @@
 <h1>Netta-B</h1>
 <b>N</b>ot Evil <b>E</b>dit <b>t</b>he <b>T</b>ext <b>A</b>utomatically-functioning <b>B</b>ot
 
-A bot for HTwins's  <a href="http://htwins.net/edit/>Edit the Text</a>.
+A bot for HTwins's <a href="http://htwins.net/edit/">Edit the Text</a>.
 
 Created by Tikolu. Visit my page on /edit/Tikolu.
 
