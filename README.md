@@ -42,6 +42,7 @@ Saves text to a page.
 Will enter the text <code>This page was editted by Netta-B</code> on the page <code>/edit/aRandomPage</code>.
 
 
+
 <h3>Read</h3>
 Returns the text of na page.
 <code>Read(page)</code>
@@ -52,6 +53,9 @@ Returns the text of na page.
 <code>print(Read("aRandomPage"))</code><br>
 Will print the contents of the page <code>/edit/aRandomPage</code>.
 
+
+
+
 <h3>IP</h3>
 Retruns the IP of the last edittor of a page.
 <code>IP(page)</code>
@@ -61,6 +65,9 @@ Retruns the IP of the last edittor of a page.
 <h5>Examples</h5>
 <code>print(IP("aRandomPage"))</code><br>
 Will print the IP of the last person that editted <code>/edit/aRandomPage</code>.
+
+
+
 
 <h3>Copy</h3>
 Copies the contents of one page to another.
