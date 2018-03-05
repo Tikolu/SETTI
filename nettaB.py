@@ -18,7 +18,7 @@ def Read(page=""):
     read = r.text
     return((read.split('<textarea rows="20" cols="100" name="content">'))[1].split('</textarea>')[0])
 
-def IP(page=""):
+def GetIP(page=""):
     r = requests.get("http://htwins.net/edit/" + page)
     read = r.text
     return((read.split('<dd id="ip">'))[1].split('</dd>')[0])
