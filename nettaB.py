@@ -26,5 +26,5 @@ def GetIP(page=""):
 def Copy(page="", to="", printOutput=True):
     Save(to, Read(page), False)
     if printOutput:
-        print("Copied " + page + " to " + to + ".")
+        print("Copied {} to {}.".format(page, to))
     
