@@ -4,9 +4,11 @@
 #
 # Use for NotEvil purposes only.
 
-
-
-import requests
+try:
+    import requests
+except ImportError:
+    print("Requests liblary not detected! Visit the Netta-B wiki for information on how to install it.")
+    exit()
 
 def Save(page="", text="", printOutput=True):
     requests.post("http://htwins.net/edit/" + page, data={'content': text})
@@ -27,4 +29,18 @@ def Copy(page="", to="", printOutput=True):
     Save(to, Read(page), False)
     if printOutput:
         print("Copied " + page + " to " + to + ".")
-    
+
+def ReadLine(page="", line=0, notFound=""):
+    output = Read(page)
+    try:
+        return output.splitlines()[line]
+    except IndexError:
+        return notFound
+
+def Append(page="", text="", printOutput=True):
+    Save(page, Read(page) + "\n" + text, False)
+    if printOutput:
+        print("Appended " + text + " to " + page + ".")
+      
+if "__main__" == __name__:
+    print("Great! You downloaded Netta-B. Now you can import it to your Python projects by using 'import nettaB'.")
