@@ -4,6 +4,8 @@
 #
 # Use for NotEvil purposes only.
 
+
+import html
 try:
     import requests
 except ImportError:
@@ -17,8 +19,11 @@ def Save(page="", text="", printOutput=True):
 
 def Read(page=""):
     r = requests.get("http://htwins.net/edit/" + page)
+    r.encoding = "utf8"
     read = r.text
-    return((read.split('<textarea rows="20" cols="100" name="content">'))[1].split('</textarea>')[0])
+    r = ((read.split('<textarea rows="20" cols="100" name="content">'))[1].split('</textarea>')[0])
+    return html.unescape(r)
+    
 
 def GetIP(page=""):
     r = requests.get("http://htwins.net/edit/" + page)
@@ -43,4 +48,4 @@ def Append(page="", text="", printOutput=True):
         print("Appended " + text + " to " + page + ".")
       
 if "__main__" == __name__:
-    print("Great! You downloaded Netta-B. Now you can import it to your Python projects by using 'import nettaB'.")
+    print("Great! Everything is working. Now you can import Netta-B into your Python projects by using 'import nettaB'.")
