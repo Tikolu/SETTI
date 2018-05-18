@@ -33,7 +33,7 @@ def GetIP(page=""):
 def Copy(page="", to="", printOutput=True):
     Save(to, Read(page), False)
     if printOutput:
-        print("Copied " + page + " to " + to + ".")
+        print("Copied {} to {}.".format(page, to))
 
 def ReadLine(page="", line=0, notFound=""):
     output = Read(page)
@@ -45,7 +45,7 @@ def ReadLine(page="", line=0, notFound=""):
 def Append(page="", text="", printOutput=True):
     Save(page, Read(page) + "\n" + text, False)
     if printOutput:
-        print("Appended " + text + " to " + page + ".")
+        print("Appended {} to {}.".format(text, page))
       
 if "__main__" == __name__:
     print("Great! Everything is working. Now you can import Netta-B into your Python projects by using 'import nettaB'.")
