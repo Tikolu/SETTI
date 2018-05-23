@@ -1,11 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 # NotEvil Edit The Text Bot
 #
 # Made by edit/tikolu
 #
 # Use for NotEvil purposes only.
-
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 '''nettaB: Python Library for Communicating with Edit the Text.'''
 import html
 try:
