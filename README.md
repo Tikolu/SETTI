@@ -1,3 +1,3 @@
-Netta-B is a library which makes it easier to make bots for Edit the text.
+SETTI is a library which makes it easier to make bots for Edit the text.
 
-More information can be found on the [Wiki](https://github.com/Tikolu/nettaB/wiki).
+More information can be found on the [Wiki](https://github.com/Tikolu/SETTI/wiki).
