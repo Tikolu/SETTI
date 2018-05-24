@@ -1,0 +1,24 @@
+NAME
+    main - SETTI: Simplified Edit The Text Interface
+
+FUNCTIONS
+    Append(page='', text='', printOutput=True)
+        The Append command can be used to append text to a existing page's contentd.
+    
+    Copy(page='', to='', printOutput=True)
+        The Copy command can be used to copy the contents of a page to another page.
+    
+    GetIP(page='')
+        The GetIP command can be used to see what IP Address last edited a page.
+    
+    Read(page='')
+        The Read command can be used to get the contents of a page.
+    
+    ReadLine(page='', line=0, notFound='')
+        The ReadLine command can be used to get one line of a page.
+    
+    Save(page='', text='', printOutput=True)
+        The Save command can be used to submit text to a page.
+
+FILE
+    ./setti/main.py
