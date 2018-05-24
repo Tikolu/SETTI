@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# NotEvil Edit The Text Bot
+# Simplified Edit The Text Interface
 #
 # Made by edit/tikolu
 #
@@ -62,4 +62,4 @@ def Append(page="", text="", printOutput=True):
 
 
 if __name__ == '__main__':
-    print("Great! Everything is working. Now you can import Netta-B into your Python projects by using 'import nettaB'.")
+    print("Great! Everything is working. Now you can import SETTI into your Python projects by using 'import setti'.")
