@@ -10,7 +10,7 @@ try:
             line = line.strip()
             if line:
                 if line[0] != '#': # For comments
-                ir.append(line)
+                    ir.append(line)
 except FileNotFoundError:
     print('requirmemts.txt could not be found, try downloading a new version.')
 
