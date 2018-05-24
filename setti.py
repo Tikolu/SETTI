@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Simplified Edit The Text Interface
+# Simple Python Library for Communicating with Edit the Text.
 #
 # Made by edit/tikolu
 #
 # Use for NotEvil purposes only.
-'''nettaB: Python Library for Communicating with Edit the Text.'''
-import html
+'''SETTI: Simplified Edit The Text Interface'''
 try:
     import requests
 except ImportError:
-    print("Requests liblary not detected! Visit the Netta-B wiki for information on how to install it.")
+    print("Requests liblary not detected! Visit the SETTI wiki for information on how to install it.")
+    exit()
+try:
+    import bs4
+except ImportError:
+    print("BeautifulSoup liblary not detected! Visit the SETTI wiki for information on how to install it.")
     exit()
 
 
@@ -26,16 +30,15 @@ def Read(page=""):
     r = requests.get("http://htwins.net/edit/" + page)
     r.encoding = "utf8"
     read = r.text
-    r = ((read.split('<textarea rows="20" cols="100" name="content">'))
-         [1].split('</textarea>')[0])
-    return html.unescape(r)
+    r = bs4.BeautifulSoup(read, 'html.parser').textarea.string
+    return r
 
 
 def GetIP(page=""):
     '''The GetIP command can be used to see what IP Address last edited a page.'''
     r = requests.get("http://htwins.net/edit/" + page)
     read = r.text
-    return read.split('<dd id="ip">')[1].split('</dd>')[0]
+    return bs4.BeautifulSoup(read, 'html.parser').find(id='ip').string
 
 
 def Copy(page="", to="", printOutput=True):
