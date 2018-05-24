@@ -6,7 +6,7 @@
 #
 # Use for NotEvil purposes only.
 '''nettaB: Python Library for Communicating with Edit the Text.'''
-import html
+import bs4
 try:
     import requests
 except ImportError:
@@ -26,16 +26,15 @@ def Read(page=""):
     r = requests.get("http://htwins.net/edit/" + page)
     r.encoding = "utf8"
     read = r.text
-    r = ((read.split('<textarea rows="20" cols="100" name="content">'))
-         [1].split('</textarea>')[0])
-    return html.unescape(r)
+    r = bs4.BeautifulSoup(read, 'html.parser').textarea.string
+    return r
 
 
 def GetIP(page=""):
     '''The GetIP command can be used to see what IP Address last edited a page.'''
     r = requests.get("http://htwins.net/edit/" + page)
     read = r.text
-    return read.split('<dd id="ip">')[1].split('</dd>')[0]
+    return bs4.BeautifulSoup(read, 'html.parser').find(id='ip').string
 
 
 def Copy(page="", to="", printOutput=True):
@@ -63,3 +62,4 @@ def Append(page="", text="", printOutput=True):
 
 if __name__ == '__main__':
     print("Great! Everything is working. Now you can import Netta-B into your Python projects by using 'import nettaB'.")
+
