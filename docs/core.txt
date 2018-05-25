@@ -1,5 +1,5 @@
 NAME
-    main - SETTI: Simplified Edit The Text Interface
+    core - SETTI: Simplified Edit The Text Interface
 
 FUNCTIONS
     Append(page='', text='', printOutput=True)
@@ -21,4 +21,4 @@ FUNCTIONS
         The Save command can be used to submit text to a page.
 
 FILE
-    ./setti/main.py
+    ./setti/core.py
