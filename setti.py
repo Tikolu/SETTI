@@ -27,11 +27,10 @@ def Save(page="", text="", printOutput=True):
 
 def Read(page=""):
     '''The Read command can be used to get the contents of a page.'''
-    r = requests.get("http://htwins.net/edit/" + page)
+    r = requests.get("http://htwins.net/edit/raw/" + page)
     r.encoding = "utf8"
     read = r.text
-    r = bs4.BeautifulSoup(read, 'html.parser').textarea.string
-    return r
+    return read
 
 
 def GetIP(page=""):
