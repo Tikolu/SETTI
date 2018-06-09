@@ -62,6 +62,14 @@ def Append(page="", text="", printOutput=True):
     if printOutput:
         print("Appended {} to {}.".format(text, page))
 
+def Export(page="", filename="page.txt", printOutput=True):
+    '''The Export command can be used to Export a page into a file.'''
+    f = open(filename, "w", encoding="utf-8")
+    f.write(Read(page))
+    f.close()
+    if printOutput:
+        print("{} has been exported to {}.".format(page, filename))
+
 
 if __name__ == '__main__':
     print("Great! Everything is working. Now you can import SETTI into your Python projects by using 'import setti'.")
