@@ -9,12 +9,12 @@
 try:
     import requests
 except ImportError:
-    print("Requests liblary not detected! Visit the SETTI wiki for information on how to install it.")
+    print("Requests library not detected! Visit the SETTI wiki for information on how to install it.")
     exit()
 try:
     import bs4
 except ImportError:
-    print("BeautifulSoup liblary not detected! Visit the SETTI wiki for information on how to install it.")
+    print("BeautifulSoup library not detected! Visit the SETTI wiki for information on how to install it.")
     exit()
 
 
