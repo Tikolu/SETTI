@@ -27,7 +27,7 @@ def Save(page="", text="", printOutput=True):
 
 def Read(page=""):
     '''The Read command can be used to get the contents of a page.'''
-    r = requests.get("http://htwins.net/edit/raw/" + page)
+    r = requests.get("http://htwins.net/edit/raw/" + page, timeout=5, headers={'Cache-Control': 'nocache', 'Pragma': 'nocache'})
     r.encoding = "utf8"
     read = r.text
     return read
@@ -35,9 +35,7 @@ def Read(page=""):
 
 def GetIP(page=""):
     '''The GetIP command can be used to see what IP Address last edited a page.'''
-    r = requests.get("http://htwins.net/edit/" + page)
-    read = r.text
-    return bs4.BeautifulSoup(read, 'html.parser').find(id='ip').string
+    return (GetRawDict(page))["ipAddress"]
 
 
 def Copy(page="", to="", printOutput=True):
@@ -62,6 +60,7 @@ def Append(page="", text="", printOutput=True):
     if printOutput:
         print("Appended {} to {}.".format(text, page))
 
+
 def Export(page="", filename="page.txt", printOutput=True):
     '''The Export command can be used to Export a page into a file.'''
     f = open(filename, "w", encoding="utf-8")
@@ -69,6 +68,22 @@ def Export(page="", filename="page.txt", printOutput=True):
     f.close()
     if printOutput:
         print("{} has been exported to {}.".format(page, filename))
+
+
+def GetRawDict(page=""):
+    '''Returns a raw dict object of the specified page which includes details of the last edit.'''
+    r = requests.get("http://htwins.net/edit/submit/" + page, timeout=5, headers={'Cache-Control': 'nocache', 'Pragma': 'nocache'})
+    return r.json()
+
+
+def GetTime(page=""):
+    '''Returns the timestamp of the last edit of a page.'''
+    return int((GetRawDict(page))["lastModified"])
+
+
+def GetEditID(page=""):
+    '''Returns the ID of the last edit of a page.'''
+    return int((GetRawDict(page))["editId"])
 
 
 if __name__ == '__main__':
