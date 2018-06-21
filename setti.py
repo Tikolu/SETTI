@@ -33,11 +33,6 @@ def Read(page=""):
     return read
 
 
-def GetIP(page=""):
-    '''The GetIP command can be used to see what IP Address last edited a page.'''
-    return (GetRawDict(page))["ipAddress"]
-
-
 def Copy(page="", to="", printOutput=True):
     '''The Copy command can be used to copy the contents of a page to another page.'''
     Save(to, Read(page), False)
@@ -74,6 +69,11 @@ def GetRawDict(page=""):
     '''Returns a raw dict object of the specified page which includes details of the last edit.'''
     r = requests.get("http://htwins.net/edit/submit/" + page, timeout=5, headers={'Cache-Control': 'nocache', 'Pragma': 'nocache'})
     return r.json()
+
+
+def GetIP(page=""):
+    '''The GetIP command can be used to see what IP Address last edited a page.'''
+    return (GetRawDict(page))["ipAddress"]
 
 
 def GetTime(page=""):
