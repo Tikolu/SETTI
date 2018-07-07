@@ -55,9 +55,9 @@ def ReadLine(page="", line=0, notFound=""):
         return notFound
 
 
-def Append(page="", text="", printOutput=True):
+def Append(page="", text="", sep="\n", printOutput=True):
     '''The Append command can be used to append text to an existing page's content.'''
-    Save(page, Read(page) + "\n" + text, False)
+    Save(page, '{}{}{}'.format(Read(page), sep, text), False)
     if printOutput:
         print("Appended {} to {}.".format(text, page))
 
