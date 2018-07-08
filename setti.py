@@ -24,7 +24,7 @@ def Save(page="", text="", printOutput=True):
     '''The Save command can be used to submit text to a page.'''
     requests.post("http://htwins.net/edit/" + page, data={'content': text})
     if printOutput:
-        print(text)
+        print(repr(text))
 
 
 def Read(page=""):
@@ -59,7 +59,7 @@ def Append(page="", text="", printOutput=True, sep="\n"):
     '''The Append command can be used to append text to an existing page's content.'''
     Save(page, '{}{}{}'.format(Read(page), sep, text), False)
     if printOutput:
-        print("Appended {} to {}.".format(text, page))
+        print("Appended {} to {}.".format(repr(text), page))
 
 
 def Export(page="", filename="page.txt", printOutput=True):
