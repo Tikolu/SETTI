@@ -5,4 +5,4 @@
 beautifulsoup4 == 4.6.0
 
 # setti.py: 10
-requests == 2.19.1
+requests == 2.31.0
